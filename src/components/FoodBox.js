@@ -1,4 +1,4 @@
-function FoodBox({foods, searchValue}) {
+function FoodBox({foods, searchValue, deleteFoodHandler}) {
   return <>
     { foods
     .filter((food)=>{
@@ -13,7 +13,7 @@ function FoodBox({foods, searchValue}) {
                 <p>Calories: {food.calories}</p>
                 <p>Servings: {food.servings}</p>
                 <p>Total Calories: {food.calories * food.servings} kcal</p>
-                <button>Delete</button>
+                <button onClick={() => deleteFoodHandler(food.name)}>Delete</button>
             </div>
         </div>)
     })}

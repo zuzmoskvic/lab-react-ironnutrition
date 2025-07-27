@@ -14,11 +14,15 @@ function App () {
       setFoods(adjustedFoodArray);
   }
 
+  const deleteFoodHandler = (foodName) => {
+      const arrayWithoutDeletedFood = foods.filter((food)=> food.name !== foodName);
+      setFoods(arrayWithoutDeletedFood);
+  }
 
   return <div className="App">
     <Search searchValue={searchValue} setSearchValue={setSearchValue}/>
     <AddFoodForm addNewFood={addNewFood}/>
-    <FoodBox foods={foods} searchValue={searchValue}/>
+    <FoodBox foods={foods} searchValue={searchValue} deleteFoodHandler={deleteFoodHandler}/>
   </div>;
 }
 export default App;
