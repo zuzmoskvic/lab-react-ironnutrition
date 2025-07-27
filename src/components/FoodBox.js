@@ -1,6 +1,10 @@
-function FoodBox({foods}) {
+function FoodBox({foods, searchValue}) {
   return <>
-    { foods.map((food) => {
+    { foods
+    .filter((food)=>{
+      return food.name.toLowerCase().includes(searchValue.toLowerCase())
+      })
+    .map((food) => {
         return (
         <div>
             <div><h1>{food.name}</h1></div>
